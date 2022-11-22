@@ -1,0 +1,17 @@
+{
+  "name": "translate-json",
+  "version": "1.0.0",
+  "description": "Translate your json without dependencies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "translate",
+    "json",
+    "transpass",
+    "keys"
+  ],
+  "author": "Lucas Mattei Malfertheiner <malfertheiner.dev@gmail.com>",
+  "license": "ISC"
+}
