@@ -1,43 +1,45 @@
-function TranslateJson(jsonObject){
+var bench = require('nanobench')
+function TranslateJson(jsonObject,parsedKeyObject){
     let result = {}
     Object.keys(jsonObject).forEach(key=>{
         
             if(Array.isArray( jsonObject[key]))
             {
             let response = jsonObject[key].map(oneObject=>{
-                return TranslateJson(oneObject)                
+                return TranslateJson(oneObject,parsedKeyObject)                
                 })
-                return   Object.assign(result, {[dicionario[key]]: response })
+                let objkey = parsedKeyObject[key]  || key
+                return   Object.assign(result, {[objkey]: response })
             } 
             else if( jsonObject[key] instanceof Object){
-                let response =  TranslateJson(jsonObject[key])                
-                return   Object.assign(result, {[dicionario[key]]: response })     
+                let response =  TranslateJson(jsonObject[key],parsedKeyObject)  
+                let objkey =  parsedKeyObject[key] || key
+                return   Object.assign(result, {[objkey]: response })     
   
             } 
             else{
-                return Object.assign(result, {[dicionario[key]]: jsonObject[key] })
+                let objkey = parsedKeyObject[key]  || key
+                return Object.assign(result, {[objkey]: jsonObject[key] })
                 }
         })
         return result
   }
 
-function GetKeys(obj){
-Object.keys(obj).forEach(key=>{
-    let keys = []
-    if(Array.isArray( jsonObject[key]))
-    {
-        let response = jsonObject[key].map(oneObject=>{
-        return GetKeys(oneObject)                
-        })
-        return   keys.concat[response]
-    } 
-    else if( obj[key] instanceof Object){
-       let response = GetKeys(obj[key])
-       return   keys.concat[response]
-    }else
-        return keys.push[key]
 
-})
-}
+
+//   const dicionario = {
+//     "teste":"name",
+//     "capital":"cidade"
+// }
+
+// const lib = {
+//     "teste":{
+//         "Estados":[
+//             {"capital":"maranhao"},
+//             {"outros":"curitiba"}
+//         ]
+//     }
+// }
+// console.log(JSON.stringify(TranslateJson(lib,dicionario)))
   
-module.exports = {TranslateJson,GetKeys}
+module.exports = {TranslateJson}
