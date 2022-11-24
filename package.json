@@ -1,6 +1,6 @@
 {
-  "name": "translate-json",
-  "version": "1.0.0",
+  "name": "@matteizera/translate-json",
+  "version": "1.0.2",
   "description": "Translate your json without dependencies.",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,6 @@
     "transpass",
     "keys"
   ],
-  "author": "Lucas Mattei Malfertheiner <malfertheiner.dev@gmail.com>",
+  "author": "Lucas Mattei Malfertheiner <lucasmattei2000@gmail.com>",
   "license": "ISC"
 }

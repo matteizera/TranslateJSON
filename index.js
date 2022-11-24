@@ -1,5 +1,5 @@
-var bench = require('nanobench')
-function TranslateJson(jsonObject,parsedKeyObject){
+
+const TranslateJson = (jsonObject,parsedKeyObject) =>{
     let result = {}
     Object.keys(jsonObject).forEach(key=>{
         
@@ -24,22 +24,5 @@ function TranslateJson(jsonObject,parsedKeyObject){
         })
         return result
   }
-
-
-
-//   const dicionario = {
-//     "teste":"name",
-//     "capital":"cidade"
-// }
-
-// const lib = {
-//     "teste":{
-//         "Estados":[
-//             {"capital":"maranhao"},
-//             {"outros":"curitiba"}
-//         ]
-//     }
-// }
-// console.log(JSON.stringify(TranslateJson(lib,dicionario)))
   
-module.exports = {TranslateJson}
+  module.exports = {TranslateJson}
